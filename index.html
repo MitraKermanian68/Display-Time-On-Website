@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Time On Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="./bg.avif" draggable="false"/>
+      <h1 id="current-time"></h1>
+        <div class="quotes">
+          <p>TODAY'S QUOTES</p>
+          <h2>Lost time is never found again</h2>
+        </div>
+    </div>
+
+    <!-- <script>
+      const time = document.getElementById("current-time");
+
+
+      setInterval(() => {
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+      },1000);
+
+      
+
+
+    </script> -->
+    <script>
+      const time = document.getElementById("current-time");
+
+      function formatTimePart(part) {
+        return String(part).padStart(2, '0'); // Ensure 2 digits with leading zeros
+      }
+
+      setInterval(() => {
+        let d = new Date();
+        let hours = formatTimePart(d.getHours());
+        let minutes = formatTimePart(d.getMinutes());
+        let seconds = formatTimePart(d.getSeconds());
+        time.innerHTML = `${hours}:${minutes}:${seconds}`;
+      }, 1000);
+    </script>
+  </body>
+</html>
